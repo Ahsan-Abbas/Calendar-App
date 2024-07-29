@@ -1,0 +1,80 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #009688;
+  padding: 25px 15px 10px 15px;
+
+  .title {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  
+    h5 {
+      color: white
+    }
+  }
+
+  button {
+    background-color: black;
+      color: white;
+      margin: 10px;
+      border-radius: 6px;
+  }
+}
+
+.day-view {
+  display: flex;
+  flex-direction: column;
+
+  .time {
+    font-weight: bold;
+  }
+}
+
+.time-slot {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  flex-direction: row;
+  min-height: 50px;
+}
+
+.appointments {
+  display: flex;
+  flex-direction: row;
+}
+
+.appointment {
+  display: flex;
+  align-items: center;
+  background: #0096882e;
+  border-radius: 5px;
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  button {
+    border: none;
+    background-color: transparent;
+
+    mat-icon {
+      color: #009688;
+    }
+  }
+}
+
+mat-form-field .mat-mdc-form-field-subscript-wrapper {
+  display: none!important;
+}

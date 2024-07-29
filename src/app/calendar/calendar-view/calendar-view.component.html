@@ -1,0 +1,46 @@
+<div class="calendar-header">
+  <div>
+    <button (click)="previousDay()"><mat-icon>arrow_back</mat-icon></button>
+    <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  <button (click)="nextDay()"><mat-icon>arrow_forward</mat-icon></button>
+</div>
+<div class="title"><h1>Calendar App</h1>
+    <h5>Submitted by: Ahsan Abbas</h5>
+</div>
+  <button mat-flat-button (click)="openAddAppointmentModal()">
+    Add Appointment
+  </button>
+</div>
+
+<!-- src/app/features/calendar/calendar-view/calendar-view.component.html -->
+<div class="day-view" #dayView>
+    <div
+      class="time-slot"
+      *ngFor="let hour of hours; let i = index"
+      cdkDropList
+      [cdkDropListData]="getAppointmentsForHour(hour) | async"
+      (cdkDropListDropped)="drop($event)"
+      [attr.data-hour]="hour"
+    >
+      <div class="time">{{ hour }}:00</div>
+      <div class="appointments">
+        <div
+          *ngFor="let appointment of (getAppointmentsForHour(hour) | async) || []"
+          cdkDrag
+          [cdkDragData]="appointment"
+          (cdkDragMoved)="onDragMoved($event)"
+          class="appointment"
+        >
+          {{ appointment.title }}
+          <button (click)="deleteAppointment(appointment)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>  
